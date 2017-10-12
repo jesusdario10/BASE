@@ -1,7 +1,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
-
+var babelify = require('babelify');
+var browserify = require('browserify');
 
 gulp.task('assets', function()
 {
@@ -23,6 +24,11 @@ gulp.task('styles', function()
     .pipe(rename('app.css'))
     .pipe(gulp.dest('public/css'))
 });
+
+gulp.task('script', function()
+{
+
+})
 
 
 

@@ -7,10 +7,11 @@ html
     link(href='https://fonts.googleapis.com/css?family=Montserrat', rel='stylesheet')
     // aqui esta el tipo de letra Montserrat
     title Platzigram
-    link(rel='stylesheet', href='app.css')
     script(src='jquery-3.2.1.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')
-    script(src='public/materialize.min.js')
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no')
     link(rel='apple-touch-icon', sizes='57x57', href='/apple-icon-57x57.png')
     link(rel='apple-touch-icon', sizes='60x60', href='/apple-icon-60x60.png')
@@ -29,8 +30,9 @@ html
     meta(name='msapplication-TileColor', content='#ffffff')
     meta(name='msapplication-TileImage', content='/ms-icon-144x144.png')
     meta(name='theme-color', content='#ffffff')  
+    link(rel='stylesheet', href='app.css')
   body
-    section.main-container
+    section.main-container#main-container
       .container
         .row
           .col.s10.push-s1
@@ -40,7 +42,7 @@ html
               .col.s12.m7
                 .row
                   .signup-box
-                    h1.platzigram Platzigram
+                    h1.platzigram Platzigramar
                     form.signup-form(action='')
                       h2 Registrate
                       .section
@@ -75,3 +77,4 @@ html
           .row
             .col.s12.l3.push-l6.center-aling
               | © 2017 Platzigram
+    script(src='app.js')          

@@ -22,7 +22,7 @@ var signinForm = yo`<div class="col s12 m7">
   </div>
   <div class="row">
     <div class="login-box">
-      ¿Tienes una cuenta? <a href="/signin">Entrar</a>
+      ¿Tienes una cuenta? <a href="/signup">Entrar</a>
     </div>
   </div>
 </div>`;

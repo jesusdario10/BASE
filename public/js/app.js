@@ -2534,6 +2534,29 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],15:[function(require,module,exports){
+
+var orig = document.title;
+
+exports = module.exports = set;
+
+function set(str) {
+  var i = 1;
+  var args = arguments;
+  document.title = str.replace(/%[os]/g, function(_){
+    switch (_) {
+      case '%o':
+        return orig;
+      case '%s':
+        return args[i++];
+    }
+  });
+}
+
+exports.reset = function(){
+  set(orig);
+};
+
+},{}],16:[function(require,module,exports){
 var bel = require('bel') // turns template tag into DOM elements
 var morphdom = require('morphdom') // efficiently diffs + morphs two DOM elements
 var defaultEvents = require('./update-events.js') // default events to be copied when dom elements update
@@ -2577,7 +2600,7 @@ module.exports.update = function (fromNode, toNode, opts) {
   }
 }
 
-},{"./update-events.js":16,"bel":1,"morphdom":9}],16:[function(require,module,exports){
+},{"./update-events.js":17,"bel":1,"morphdom":9}],17:[function(require,module,exports){
 module.exports = [
   // attribute events (can be set with attributes)
   'onclick',
@@ -2615,7 +2638,7 @@ module.exports = [
   'onfocusout'
 ]
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var page = require('page');
 var signup = require('./signup');
 var signin = require('./signin');
@@ -2628,7 +2651,7 @@ page('/', function (ctx, next) {
 
 page();
 
-},{"./signin":19,"./signup":21,"page":12}],18:[function(require,module,exports){
+},{"./signin":20,"./signup":22,"page":12}],19:[function(require,module,exports){
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
@@ -2646,17 +2669,18 @@ module.exports = function landing(box) {
   </div>`;
 };
 
-},{"yo-yo":15}],19:[function(require,module,exports){
+},{"yo-yo":16}],20:[function(require,module,exports){
 var page = require('page');
 var template = require('./template.js');
 var empty = require('empty-element');
 var main = document.getElementById('main-container');
-
+var title = require('title');
 page('/signin', function (ctx, next) {
+  title('Platzigram-signin');
   empty(main).appendChild(template);
 });
 
-},{"./template.js":20,"empty-element":3,"page":12}],20:[function(require,module,exports){
+},{"./template.js":21,"empty-element":3,"page":12,"title":15}],21:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
@@ -2681,23 +2705,25 @@ var signinForm = yo`<div class="col s12 m7">
   </div>
   <div class="row">
     <div class="login-box">
-      ¿Tienes una cuenta? <a href="/signin">Entrar</a>
+      ¿Tienes una cuenta? <a href="/signup">Entrar</a>
     </div>
   </div>
 </div>`;
 module.exports = landing(signinForm);
 
-},{"../landing":18,"yo-yo":15}],21:[function(require,module,exports){
+},{"../landing":19,"yo-yo":16}],22:[function(require,module,exports){
 var page = require('page');
 var template = require('./template.js');
 var empty = require('empty-element');
 var main = document.getElementById('main-container');
+var title = require('title');
 
 page('/signup', function (req, res) {
+	title('Platzigram-signup');
 	empty(main).appendChild(template);
 });
 
-},{"./template.js":22,"empty-element":3,"page":12}],22:[function(require,module,exports){
+},{"./template.js":23,"empty-element":3,"page":12,"title":15}],23:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
@@ -2731,4 +2757,4 @@ var signupForm = yo`<div class="col s12 m7">
 
 module.exports = landing(signupForm);
 
-},{"../landing":18,"yo-yo":15}]},{},[17]);
+},{"../landing":19,"yo-yo":16}]},{},[18]);

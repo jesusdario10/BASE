@@ -15,10 +15,6 @@ gulp.task('assets2', function()
     .src('assets2/*')
     .pipe(gulp.dest('public/js'))
 })
-
-
-
-
 gulp.task('styles', function()
 {
   gulp

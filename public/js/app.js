@@ -2618,6 +2618,7 @@ module.exports = [
 },{}],17:[function(require,module,exports){
 var page = require('page');
 var signup = require('./signup');
+var signin = require('./signin');
 
 var main = document.getElementById('main-container');
 
@@ -2627,7 +2628,7 @@ page('/', function (ctx, next) {
 
 page();
 
-},{"./signup":19,"page":12}],18:[function(require,module,exports){
+},{"./signin":19,"./signup":21,"page":12}],18:[function(require,module,exports){
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
@@ -2651,11 +2652,52 @@ var template = require('./template.js');
 var empty = require('empty-element');
 var main = document.getElementById('main-container');
 
+page('/signin', function (ctx, next) {
+  empty(main).appendChild(template);
+});
+
+},{"./template.js":20,"empty-element":3,"page":12}],20:[function(require,module,exports){
+var yo = require('yo-yo');
+var landing = require('../landing');
+
+var signinForm = yo`<div class="col s12 m7">
+  <div class="row">
+    <div class="signup-box">
+      <h1 class="platzigram">Platzigram</h1>
+      <form action="" class="signup-form">
+        <h2>Signin</h2>
+        <div class="section">
+          <a href="" class="btn btn-fb waves-effect waves-light hide-on-small-only">Iniciar Sesion con facebook</a><!--la clase hide-on-small-only hace que no se muestre el a en dispositivos moviles-->
+          <a href="" class="btn btn-signup hide-on-med-and-up">Iniciar Sesion</a><!-- la clase hide-on-med-and-up hace que se muestre en dispositivos moviles-->
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+          <input type="text" name="username" placeholder="Nombre de usuario" value="">
+          <input type="password" name="password" placeholder="Password" value="">
+          <button type="submit" class="btn btn-signup waves-effect waves-light">Iniciar Sesion</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="login-box">
+      ¿Tienes una cuenta? <a href="/signin">Entrar</a>
+    </div>
+  </div>
+</div>`;
+module.exports = landing(signinForm);
+
+},{"../landing":18,"yo-yo":15}],21:[function(require,module,exports){
+var page = require('page');
+var template = require('./template.js');
+var empty = require('empty-element');
+var main = document.getElementById('main-container');
+
 page('/signup', function (req, res) {
 	empty(main).appendChild(template);
 });
 
-},{"./template.js":20,"empty-element":3,"page":12}],20:[function(require,module,exports){
+},{"./template.js":22,"empty-element":3,"page":12}],22:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 

@@ -74,6 +74,6 @@ gulp.task('watch', function()
 
 
 /*esta sera la tarea por defecto*/
-gulp.task('default',['styles', 'assets','asset2', 'build']);//el primer parametro sera default y eso lo hra en automatico, el
+gulp.task('default',['styles', 'assets','assets2', 'build']);//el primer parametro sera default y eso lo hra en automatico, el
                        //segundo parametro es un array que puede ejecturar muchas tareas al tiempo
                        //en este caso sera solo una

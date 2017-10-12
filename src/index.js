@@ -3,7 +3,7 @@ var main= document.getElementById('main-container');
 
 page('/', function(ctx, next)
 	{
-  		main.innerHTML =`home`
+  		main.innerHTML =`jet`
 	});
 
 app.get('/signup', function(req, res)

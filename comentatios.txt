@@ -1,0 +1,32 @@
+
+
+
+EN ESTA VERSION (version_1)PRACTICARE SOBRE LAS VENTAJAS DE GIT, NAVEGACION ENTRE COMMITS
+
+
+PRUEBAS
+
+
+1-PRUEBA 1
+
+a- crear este archivo
+b-adicionarlo al stagin area
+c-incluirlo al repositorio  es decir al git directory
+d- hacer un log de los commit en otro terminal
+d- utilizar checkout para ir al primer commit
+
+RESULTADO
+
+deberia desaparecer el txt creado
+
+e- utilizar checkout para ir al ultimo commit
+
+RESULTADO
+
+deberia aparecer el txt creado
+
+2-PRUEBA 2
+
+navegacion entre commit exitosa, veremos añadiedndo un nuevo commit
+
+3-PRUEBA 3

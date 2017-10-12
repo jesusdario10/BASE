@@ -12,6 +12,7 @@
     "pug": "^2.0.0-rc.4",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0",
+    "yo-yo": "^1.4.1",
     "yoyo": "^0.2.0"
   },
   "devDependencies": {

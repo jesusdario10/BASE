@@ -2640,18 +2640,13 @@ module.exports = [
 
 },{}],18:[function(require,module,exports){
 var page = require('page');
+var home = require('./template');
 var signup = require('./signup');
 var signin = require('./signin');
 
-var main = document.getElementById('main-container');
-
-page('/', function (ctx, next) {
-	main.innerHTML = `jet`;
-});
-
 page();
 
-},{"./signin":20,"./signup":22,"page":12}],19:[function(require,module,exports){
+},{"./signin":20,"./signup":22,"./template":24,"page":12}],19:[function(require,module,exports){
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
@@ -2730,12 +2725,12 @@ var landing = require('../landing');
 var signupForm = yo`<div class="col s12 m7">
   <div class="row">
     <div class="signup-box">
-      <h1 class="platzigram">Platzigramupoptu</h1>
+      <h1 class="platzigram">Platzigram</h1>
       <form action="" class="signup-form">
         <h2>Registrate</h2>
         <div class="section">
-          <a href="" class="btn btn-fb waves-effect waves-light hide-on-small-only">Iniciar Sesion con facebook</a><!--la clase hide-on-small-only hace que no se muestre el a en dispositivos moviles-->
-          <a href="" class="btn btn-signup hide-on-med-and-up">Iniciar Sesion</a><!-- la clase hide-on-med-and-up hace que se muestre en dispositivos moviles-->
+          <a href="" class="btn btn-fb waves-effect waves-light hide-on-small-only"><i class="fa fa-facebook-square" aria-hidden="true"></i>  Iniciar Sesion con facebook</a><!--la clase hide-on-small-only hace que no se muestre el a en dispositivos moviles-->
+          <a href="" class="btn btn-fb btn-signup hide-on-med-and-up"><i class="fa fa-facebook-square" aria-hidden="true"></i>  Iniciar Sesion</a><!-- la clase hide-on-med-and-up hace que se muestre en dispositivos moviles-->
         </div>
         <div class="divider"></div>
         <div class="section">
@@ -2743,7 +2738,7 @@ var signupForm = yo`<div class="col s12 m7">
           <input type="text" name="name" placeholder="Nombre completo" value="">
           <input type="text" name="username" placeholder="Nombre de usuario" value="">
           <input type="password" name="password" placeholder="Password" value="">
-          <button type="submit" class="btn btn-signup waves-effect waves-light">Iniciar Sesion</button>
+          <button type="submit" class="btn btn-fb btn-signup waves-effect waves-light">Iniciar Sesion</button>
         </div>
       </form>
     </div>
@@ -2757,4 +2752,13 @@ var signupForm = yo`<div class="col s12 m7">
 
 module.exports = landing(signupForm);
 
-},{"../landing":19,"yo-yo":16}]},{},[18]);
+},{"../landing":19,"yo-yo":16}],24:[function(require,module,exports){
+var page = require('page');
+
+var main = document.getElementById('main-container');
+
+page('/', function (ctx, next) {
+	main.innerHTML = `ojo`;
+});
+
+},{"page":12}]},{},[18]);

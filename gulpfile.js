@@ -8,7 +8,7 @@ gulp.task('styles', function()
     .src('index.scss')
     .pipe(sass())
     .pipe(rename('app.css'))
-    .pipe(gulp.dest('public'))
+    .pipe(gulp.dest('public/css'))
 });
 
 gulp.task('default', ['styles']);

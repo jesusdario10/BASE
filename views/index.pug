@@ -1,0 +1,62 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    link(href='https://fonts.googleapis.com/css?family=Oleo+Script', rel='stylesheet')
+    // fuente oleoscript para platzigram del titilo
+    link(href='https://fonts.googleapis.com/css?family=Montserrat', rel='stylesheet')
+    // aqui esta el tipo de letra Montserrat
+    title Platzigram
+    link(rel='stylesheet', href='index.css')
+    script(src='public/jquery-3.2.1.min.js')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
+    // Compiled and minified JavaScript
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')
+    script(src='public/materialize.min.js')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no')
+  body
+    section.main-container
+      .container
+        .row
+          .col.s10.push-s1
+            .row
+              .col.m5.hide-on-small-only
+                img.iphone(src='iphone.png', alt='')
+              .col.s12.m7
+                .row
+                  .signup-box
+                    h1.platzigram Platzigram
+                    form.signup-form(action='')
+                      h2 Registrate
+                      .section
+                        a.btn.btn-fb.waves-effect.waves-light.hide-on-small-only(href='') Iniciar Sesion con facebook
+                        // la clase hide-on-small-only hace que no se muestre el a en dispositivos moviles
+                        a.btn.btn-signup.hide-on-med-and-up(href='') Iniciar Sesion
+                        // la clase hide-on-med-and-up hace que se muestre en dispositivos moviles
+                      .divider
+                      .section
+                        input(type='email', name='email', placeholder='Correo Electronico', value='')
+                        input(type='text', name='name', placeholder='Nombre completo', value='')
+                        input(type='text', name='username', placeholder='Nombre de usuario', value='')
+                        input(type='password', name='password', placeholder='Password', value='')
+                        button.btn.btn-signup.waves-effect.waves-light(type='submit') Iniciar Sesion
+                .row
+                  .login-box
+                    | ¿Tienes una cuenta? 
+                    a(href='/signin') Entrar
+    section
+      footer.site-footer
+        .container
+          .row
+            .col.s12.l3.center-aling
+              // Dropdown Trigger
+              a.dropdown-button.btn(href='#', data-activates='dropdown1') Idioma
+              // Dropdown Structure
+              ul#dropdown1.dropdown-content
+                li
+                  a(href='#!') Español
+                li
+                  a(href='#!') Ingles
+          .row
+            .col.s12.l3.push-l6.center-aling
+              | © 2017 Platzigram

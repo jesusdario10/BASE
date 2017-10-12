@@ -9,15 +9,15 @@ app.use(express.static('fonts'))
 
 app.get('/', function(req, res)
 {
-  res.render('index')
+  res.render('index',{title:'Platzigram-Home'})
 })
 app.get('/signup', function(req, res)
 {
-  res.render('index')
+  res.render('index',{title:'Platzigram-signup'})
 })
 app.get('/signin', function(req, res)
 {
-  res.render('index')
+  res.render('index',{title:'Platzigram-signin'})
 })
 app.listen(3000, function(err)
 {

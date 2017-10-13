@@ -2647,25 +2647,31 @@ var title = require('title');
 
 page('/', function (ctx, next) {
   title('Platzigram-signin');
-  empty(main).appendChild(template);
+
+  var pictures = [1, 2, 3, 4, 5];
+  empty(main).appendChild(template(pictures));
 });
 
 },{"./template.js":19,"empty-element":3,"page":12,"title":15}],19:[function(require,module,exports){
 var yo = require('yo-yo');
 var layout = require('../layout');
+var picture = require('../picture-card');
 
-var template = yo`<div class="container time-line">
-                    <div class="row">
-                      <div class="col s12 m10 offset-m1 l6 offset-l3">
-                        content
-                      </div>
-                    </div>
-                </div>
-                `;
+module.exports = function (pictures) {
+  var el = yo`<div class="container time-line">
+                     <div class="row">
+                       <div class="col s12 m10 offset-m1 l6 offset-l3">
+                        ${pictures.map(function (pic) {
+    return picture;
+  })}
+                       </div>
+                     </div>
+                 </div>`;
 
-module.exports = layout(template);
+  return layout(el);
+};
 
-},{"../layout":22,"yo-yo":16}],20:[function(require,module,exports){
+},{"../layout":22,"../picture-card":23,"yo-yo":16}],20:[function(require,module,exports){
 var page = require('page');
 var home = require('./home');
 var signup = require('./signup');
@@ -2673,7 +2679,7 @@ var signin = require('./signin');
 
 page();
 
-},{"./home":18,"./signin":23,"./signup":25,"page":12}],21:[function(require,module,exports){
+},{"./home":18,"./signin":24,"./signup":26,"page":12}],21:[function(require,module,exports){
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
@@ -2722,6 +2728,23 @@ module.exports = function layput(content) {
 };
 
 },{"yo-yo":16}],23:[function(require,module,exports){
+var yo = require('yo-yo');
+
+module.exports = yo`<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://materializecss.com/images/office.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">image<i class="material-icons right">more_vert</i></span>
+
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>`;
+
+},{"yo-yo":16}],24:[function(require,module,exports){
 var page = require('page');
 var template = require('./template.js');
 var empty = require('empty-element');
@@ -2732,7 +2755,7 @@ page('/signin', function (ctx, next) {
   empty(main).appendChild(template);
 });
 
-},{"./template.js":24,"empty-element":3,"page":12,"title":15}],24:[function(require,module,exports){
+},{"./template.js":25,"empty-element":3,"page":12,"title":15}],25:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
@@ -2763,7 +2786,7 @@ var signinForm = yo`<div class="col s12 m7">
 </div>`;
 module.exports = landing(signinForm);
 
-},{"../landing":21,"yo-yo":16}],25:[function(require,module,exports){
+},{"../landing":21,"yo-yo":16}],26:[function(require,module,exports){
 var page = require('page');
 var template = require('./template.js');
 var empty = require('empty-element');
@@ -2775,7 +2798,7 @@ page('/signup', function (req, res) {
 	empty(main).appendChild(template);
 });
 
-},{"./template.js":26,"empty-element":3,"page":12,"title":15}],26:[function(require,module,exports){
+},{"./template.js":27,"empty-element":3,"page":12,"title":15}],27:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 

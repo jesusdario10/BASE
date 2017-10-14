@@ -2648,7 +2648,23 @@ var title = require('title');
 page('/', function (ctx, next) {
   title('Platzigram-signin');
 
-  var pictures = [1, 2, 3, 4, 5];
+  var pictures = [{
+    user: {
+      username: 'Jesus D Marenco',
+      avatelr: 'https://scontent-bog1-1.xx.fbcdn.net/v/t1.0-9/1484696_10205635253333470_6832608531301534797_n.jpg?oh=9ab3f75650ce4320a223283b6b6ee241&oe=5A7DFD96'
+    },
+    url: 'http://materializecss.com/images/office.jpg',
+    likes: 1024,
+    liked: true
+  }, {
+    user: {
+      username: 'Jesus D Marenco',
+      avatelr: 'https://scontent-bog1-1.xx.fbcdn.net/v/t1.0-9/1484696_10205635253333470_6832608531301534797_n.jpg?oh=9ab3f75650ce4320a223283b6b6ee241&oe=5A7DFD96'
+    },
+    url: 'http://materializecss.com/images/office.jpg',
+    likes: 1024,
+    liked: true
+  }];
   empty(main).appendChild(template(pictures));
 });
 
@@ -2662,7 +2678,7 @@ module.exports = function (pictures) {
                      <div class="row">
                        <div class="col s12 m10 offset-m1 l6 offset-l3">
                         ${pictures.map(function (pic) {
-    return picture;
+    return picture(pic);
   })}
                        </div>
                      </div>
@@ -2709,7 +2725,7 @@ module.exports = function layput(content) {
                         <div class="col s12 m6 offset-m1">
                           <a href="/" class='brand-logo platzigram'>Platzigram</a>
                         </div>
-                        <div class="col s2 m6 push-s10 push-m8">
+                        <div class="col s2 m6 push-s10 push-m12">
                           <a href="#" class='btn btn-large btn-flat dropdown-button' data-activates='dropdown2'>
                             <i class="fa fa-user" aria-hidden="true"></i>
                           </a>
@@ -2730,19 +2746,21 @@ module.exports = function layput(content) {
 },{"yo-yo":16}],23:[function(require,module,exports){
 var yo = require('yo-yo');
 
-module.exports = yo`<div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="http://materializecss.com/images/office.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">image<i class="material-icons right">more_vert</i></span>
+module.exports = function (pic) {
+  return yo`<div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="http://materializecss.com/images/office.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">image<i class="material-icons right">more_vert</i></span>
 
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>`;
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
+    </div>`;
+};
 
 },{"yo-yo":16}],24:[function(require,module,exports){
 var page = require('page');

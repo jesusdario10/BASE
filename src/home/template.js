@@ -10,7 +10,7 @@ module.exports=function(pictures)
                        <div class="col s12 m10 offset-m1 l6 offset-l3">
                         ${pictures.map(function(pic)
                           {
-                            return picture;
+                            return picture(pic);
                           })}
                        </div>
                      </div>

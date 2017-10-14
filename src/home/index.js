@@ -12,7 +12,7 @@ page('/', function(ctx,next)
   [{
     user: {
       username:'Jesus D Marenco',
-      avatelr :'https://scontent-bog1-1.xx.fbcdn.net/v/t1.0-9/1484696_10205635253333470_6832608531301534797_n.jpg?oh=9ab3f75650ce4320a223283b6b6ee241&oe=5A7DFD96'
+      avatar :'avatar.jpg'
     },
     url: 'http://materializecss.com/images/office.jpg',
     likes : 1024,
@@ -21,11 +21,13 @@ page('/', function(ctx,next)
   {
     user: {
       username:'Jesus D Marenco',
-      avatelr :'https://scontent-bog1-1.xx.fbcdn.net/v/t1.0-9/1484696_10205635253333470_6832608531301534797_n.jpg?oh=9ab3f75650ce4320a223283b6b6ee241&oe=5A7DFD96'
+      avatar :'avatar.jpg'
     },
-    url: 'http://materializecss.com/images/office.jpg',
-    likes : 1024,
+    url: 'fotoperfil.jpg',
+    likes : 3300,
     liked : true
   }]
+
+  console.log(empty(main).appendChild(template(pictures)))
   empty(main).appendChild(template(pictures));
 })

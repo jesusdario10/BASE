@@ -2651,7 +2651,7 @@ page('/', function (ctx, next) {
   var pictures = [{
     user: {
       username: 'Jesus D Marenco',
-      avatelr: 'https://scontent-bog1-1.xx.fbcdn.net/v/t1.0-9/1484696_10205635253333470_6832608531301534797_n.jpg?oh=9ab3f75650ce4320a223283b6b6ee241&oe=5A7DFD96'
+      avatar: 'avatar.jpg'
     },
     url: 'http://materializecss.com/images/office.jpg',
     likes: 1024,
@@ -2659,12 +2659,14 @@ page('/', function (ctx, next) {
   }, {
     user: {
       username: 'Jesus D Marenco',
-      avatelr: 'https://scontent-bog1-1.xx.fbcdn.net/v/t1.0-9/1484696_10205635253333470_6832608531301534797_n.jpg?oh=9ab3f75650ce4320a223283b6b6ee241&oe=5A7DFD96'
+      avatar: 'avatar.jpg'
     },
-    url: 'http://materializecss.com/images/office.jpg',
-    likes: 1024,
+    url: 'fotoperfil.jpg',
+    likes: 3300,
     liked: true
   }];
+
+  console.log(empty(main).appendChild(template(pictures)));
   empty(main).appendChild(template(pictures));
 });
 
@@ -2749,15 +2751,18 @@ var yo = require('yo-yo');
 module.exports = function (pic) {
   return yo`<div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="http://materializecss.com/images/office.jpg">
+        <img class="activator" src="${pic.url}">
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">image<i class="material-icons right">more_vert</i></span>
-
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        <a href="/user/${pic.user.username}" class="card-title">
+        <img src="${pic.user.avatar}" class="avatar"/>
+        <span class="username">${pic.user.username}</span>
+        </a>
+        <small class="right time">Hace un dia</small>
+        <p>
+          <a class="left" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+          <span class="left likes">${pic.likes} me gusta></span>
+        </p>
       </div>
     </div>`;
 };

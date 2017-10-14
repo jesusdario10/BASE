@@ -1,4 +1,4 @@
-
+creando version 4: como se me olvido entrar en la version 3,  y escribi en master, he decidido uniciar la version 4 y por eso hare un commit de inicio
 
 
 EN ESTA VERSION (version_1)PRACTICARE SOBRE LAS VENTAJAS DE GIT, NAVEGACION ENTRE COMMITS

@@ -7,7 +7,6 @@ var title = require('title');
 page('/', function(ctx,next)
 {
   title('Platzigram-signin')
-
   var pictures =
   [{
     user: {

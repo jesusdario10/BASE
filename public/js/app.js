@@ -7303,9 +7303,9 @@ module.exports = function (pictures) {
 },{"../layout":24,"../picture-card":25,"yo-yo":18}],22:[function(require,module,exports){
 var page = require('page');
 require('moment/locale/es');
-var home = require('./home');
-var signup = require('./signup');
-var signin = require('./signin');
+require('./home');
+require('./signup');
+require('./signin');
 
 page();
 

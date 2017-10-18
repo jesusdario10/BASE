@@ -15,7 +15,7 @@ page('/', function(ctx,next)
     },
     url: 'http://materializecss.com/images/office.jpg',
     likes : 1024,
-    liked : true
+    liked : false
   },
   {
     user: {
@@ -24,7 +24,7 @@ page('/', function(ctx,next)
     },
     url: 'fotoperfil.jpg',
     likes : 3300,
-    liked : true
+    liked : false
   }]
 
   console.log(empty(main).appendChild(template(pictures)))

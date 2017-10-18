@@ -17,29 +17,22 @@ module.exports= function pictureCard(pic)
           </a>
           <small class="right time">Hace un dia</small>
           <p>
-            <a class="left" href="#" onclick=${like}><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-            <a class="left" href="#" onclick=${dislike}><i class="fa fa-heart" aria-hidden="true"></i></a>
+            <a class="left" href="#" onclick=${like.bind(null, true)}><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+            <a class="left" href="#" onclick=${like.bind(null, false)}><i class="fa fa-heart" aria-hidden="true"></i></a>
             <span class="left likes">${picture.likes} me gusta></span>
           </p>
         </div>
       </div>`
   }
-  function like()
+  function like(liked)
   {
-    pic.liked = true;
-    pic.likes++;
+    pic.liked = liked;
+    pic.likes+=liked ? 1 :-1;
     var newEl =render(pic);
     yo.update(el, newEl);
     return false;
   }
-  function dislike()
-  {
-    pic.liked = false;
-    pic.likes--;
-    var newEl =render(pic);
-    yo.update(el, newEl);
-    return false;
-  }
+
   el=render(pic)
   return el;
 }

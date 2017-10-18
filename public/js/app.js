@@ -2751,7 +2751,7 @@ module.exports = function pictureCard(pic) {
   var el;
 
   function render(picture) {
-    return yo`<div class="card">
+    return yo`<div class="card ${picture.liked ? 'liked' : ''}">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" src="${picture.url}">
         </div>
@@ -2763,6 +2763,7 @@ module.exports = function pictureCard(pic) {
           <small class="right time">Hace un dia</small>
           <p>
             <a class="left" href="#" onclick=${like}><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+            <a class="left" href="#" onclick=${dislike}><i class="fa fa-heart" aria-hidden="true"></i></a>
             <span class="left likes">${picture.likes} me gusta></span>
           </p>
         </div>
@@ -2771,6 +2772,13 @@ module.exports = function pictureCard(pic) {
   function like() {
     pic.liked = true;
     pic.likes++;
+    var newEl = render(pic);
+    yo.update(el, newEl);
+    return false;
+  }
+  function dislike() {
+    pic.liked = false;
+    pic.likes--;
     var newEl = render(pic);
     yo.update(el, newEl);
     return false;

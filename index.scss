@@ -106,3 +106,18 @@ $avatar-size:12px;
 {
   color:#4a47f1;
 }
+
+.card .fa-heart
+{
+  color:#f44336;
+  display: none;
+}
+.card.liked{
+  .fa-heart{
+    display: block;
+  }
+  display: block;
+  .fa-heart-o{
+    display: none;
+  }
+}
